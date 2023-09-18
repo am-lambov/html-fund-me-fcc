@@ -29,6 +29,8 @@ async function getBalance() {
         const provider = new ethers.BrowserProvider(window.ethereum)
         try {
             const balance = await provider.getBalance(contractAddress)
+            document.getElementById('contractBallance').value =
+                ethers.formatEther(balance)
             console.log(`Ballance is: ${ethers.formatEther(balance)} ETH`)
         } catch (error) {
             console.log(error)
